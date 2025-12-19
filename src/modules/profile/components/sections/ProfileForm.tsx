@@ -50,19 +50,8 @@ export const ProfileForm = () => {
                 fullWidth
                 margin="normal"
                 value={hook.email}
-                onChange={(e) => hook.handleEmailChange(e. target.value)}
-                disabled={! hook.isEditing}
-                required
-            />
-
-            <TextField
-                label="Nom"
-                type="text"
-                fullWidth
-                margin="normal"
-                value={hook.name}
-                onChange={(e) => hook.handleNameChange(e.target.value)}
-                disabled={!hook. isEditing}
+                onChange={(e) => hook.handleEmailChange(e.target.value)}
+                disabled={!hook.isEditing}
                 required
             />
 
@@ -72,7 +61,7 @@ export const ProfileForm = () => {
                 fullWidth
                 margin="normal"
                 value={hook.firstName}
-                onChange={(e) => hook.handleFirstNameChange(e.target. value)}
+                onChange={(e) => hook.handleFirstNameChange(e.target.value)}
                 disabled={!hook.isEditing}
             />
 

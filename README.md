@@ -1,3 +1,130 @@
+# EventHub Frontend
+
+Application frontend pour EventHub, développée avec React, TypeScript et Vite.
+
+## Architecture modulaire
+
+Chaque module suit la même structure :
+
+```
+module/
+├── __tests__/       # Tests unitaires du module
+├── components/
+│   ├── pages/       # Pages complètes (routes)
+│   └── sections/    # Composants de sections (formulaires, listes...)
+├── core/
+│   ├── slice/       # État Redux (actions, reducers)
+│   └── usecases/    # Logique métier (appels API, workflows)
+├── hooks/           # Hooks React personnalisés
+└── utils/           # Fonctions utilitaires
+```
+
+## Architecture du projet
+
+```
+src/
+├── App.tsx                     # Routes principales
+├── main.tsx                    # Point d'entrée
+├── index.css                   # Styles globaux
+│
+└── modules/
+    ├── app/                    # Module application
+    │   ├── main.ts             # Initialisation (store, dependencies)
+    │   └── components/
+    │       ├── AppWrapper.tsx  # Provider Redux
+    │       └── Layout.tsx      # Layout commun (header, container)
+    │
+    ├── store/                  # Configuration Redux
+    │   ├── store.ts            # Configuration du store
+    │   └── dependencies.ts     # Injection de dépendances
+    │
+    ├── auth/                   # Module authentification
+    │   ├── __tests__/
+    │   │   └── auth.test.ts
+    │   └── core/
+    │       └── slice/
+    │           └── auth.slice.ts
+    │
+    ├── login/                  # Module connexion
+    │   ├── __tests__/
+    │   │   └── loginUI.test.ts
+    │   ├── components/
+    │   │   ├── pages/
+    │   │   │   └── Login.tsx
+    │   │   └── sections/
+    │   │       └── LoginForm.tsx
+    │   ├── core/
+    │   │   ├── slice/
+    │   │   │   └── loginUI.slice.ts
+    │   │   └── usecases/
+    │   │       └── login.usecase.ts
+    │   └── hooks/
+    │       └── useLoginForm.ts
+    │
+    ├── register/               # Module inscription
+    │   ├── __tests__/
+    │   │   └── registerUI.test.ts
+    │   ├── components/
+    │   │   ├── pages/
+    │   │   │   └── Register.tsx
+    │   │   └── sections/
+    │   │       └── RegisterForm.tsx
+    │   ├── core/
+    │   │   ├── slice/
+    │   │   │   └── registerUI.slice.ts
+    │   │   └── usecases/
+    │   │       └── register.usecase.ts
+    │   ├── hooks/
+    │   │   └── useRegisterForm.ts
+    │   └── utils/
+    │       └── passwordValidation.ts
+    │
+    ├── profile/                # Module profil
+    │   ├── __tests__/
+    │   │   └── profileUI.test.ts
+    │   ├── components/
+    │   │   ├── pages/
+    │   │   │   └── Profile.tsx
+    │   │   └── sections/
+    │   │       └── ProfileForm.tsx
+    │   ├── core/
+    │   │   ├── slice/
+    │   │   │   └── profileUI.slice.ts
+    │   │   └── usecases/
+    │   │       └── updateProfile.usecase.ts
+    │   └── hooks/
+    │       └── useProfileForm.ts
+    │
+    └── testing/                # Utilitaires de test
+        └── test-environements.ts
+```
+
+## Installation
+
+```bash
+npm install
+```
+
+## Développement
+
+Lancer le serveur de développement :
+
+```bash
+npm run dev
+```
+
+L'application sera accessible sur [http://localhost:5173](http://localhost:5173)
+
+## Tests
+
+Lancer les tests :
+
+```bash
+npm test
+```
+
+---
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

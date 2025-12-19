@@ -13,14 +13,12 @@ export const useProfileForm = () => {
     );
 
     const [email, setEmail] = useState(user?.email || "");
-    const [name, setName] = useState(user?.name || "");
     const [firstName, setFirstName] = useState(user?.firstName || "");
     const [lastName, setLastName] = useState(user?.lastName || "");
 
     useEffect(() => {
         if (user) {
             setEmail(user.email);
-            setName(user.name);
             setFirstName(user.firstName || "");
             setLastName(user.lastName || "");
         }
@@ -33,7 +31,6 @@ export const useProfileForm = () => {
     const handleCancel = () => {
         if (user) {
             setEmail(user.email);
-            setName(user.name);
             setFirstName(user.firstName || "");
             setLastName(user.lastName || "");
         }
@@ -51,11 +48,6 @@ export const useProfileForm = () => {
         handleChange();
     };
 
-    const handleNameChange = (value: string) => {
-        setName(value);
-        handleChange();
-    };
-
     const handleFirstNameChange = (value: string) => {
         setFirstName(value);
         handleChange();
@@ -68,18 +60,16 @@ export const useProfileForm = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        dispatch(updateProfileUsecase({ email, name, firstName, lastName }));
+        dispatch(updateProfileUsecase({ email, firstName, lastName }));
     };
 
     const isFormValid = () => {
-        return email.trim() !== "" && name.trim() !== "" && hasUnsavedChanges;
+        return email.trim() !== "" && hasUnsavedChanges;
     };
 
     return {
         email,
         handleEmailChange,
-        name,
-        handleNameChange,
         firstName,
         handleFirstNameChange,
         lastName,

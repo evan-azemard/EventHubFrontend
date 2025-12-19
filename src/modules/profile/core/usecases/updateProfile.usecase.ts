@@ -5,7 +5,6 @@ import { updateUser } from "../../../auth/core/slice/auth.slice";
 export const updateProfileUsecase =
     (data: {
         email: string;
-        name: string;
         firstName?: string;
         lastName?: string;
     }) =>
@@ -15,8 +14,8 @@ export const updateProfileUsecase =
         try {
             await new Promise((resolve) => setTimeout(resolve, 1000));
 
-            if (!data.email || !data.name) {
-                dispatch(updateProfileFailure("Email et nom sont requis"));
+            if (!data.email) {
+                dispatch(updateProfileFailure("Email est requis"));
                 return;
             }
 
