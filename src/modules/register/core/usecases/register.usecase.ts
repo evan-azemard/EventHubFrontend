@@ -6,9 +6,8 @@ export const registerUsecase =
     (data: {
         email: string;
         password: string;
-        name: string;
-        firstName?: string;
-        lastName?: string;
+        firstName: string;
+        lastName: string;
     }) =>
     async (dispatch: AppDispatch) => {
         dispatch(registerStart());
@@ -23,7 +22,6 @@ export const registerUsecase =
 
             const user = {
                 email: data.email,
-                name: data.name,
                 firstName: data.firstName,
                 lastName: data.lastName,
             };
