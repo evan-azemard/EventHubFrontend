@@ -1,4 +1,4 @@
-import { Box, Button, TextField, Typography, Alert } from "@mui/material";
+import { Box, Button, TextField, Typography, Alert, CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useRegisterForm } from "../../hooks/useRegisterForm";
 
@@ -76,7 +76,12 @@ export const RegisterForm = () => {
                 disabled={!hook.isFormValid() || hook.isLoading}
                 sx={{ mt: 2 }}
             >
-                {hook.isLoading ? "Inscription..." : "S'inscrire"}
+                {hook.isLoading ? (
+                    <>
+                        <CircularProgress size={20} color="inherit" sx={{ mr: 1 }} />
+                        Inscription...
+                    </>
+                ) : "S'inscrire"}
             </Button>
 
             <Box sx={{ mt: 2, textAlign: "center" }}>
