@@ -14,10 +14,10 @@ describe("authSlice", () => {
 
     test("devrait mettre à jour l'utilisateur quand updateUser est appelé", () => {
         const store = createTestStore();
-        const user = { email: "test@test.com", name: "John Doe" };
+        const user = { email: "test@test.com", name: "Evan Azmd" };
 
         store.dispatch(setUser(user));
-        store.dispatch(updateUser({ firstName: "Jane", lastName: "Smith" }));
+        store.dispatch(updateUser({ firstName: "Evan", lastName: "Azmd" }));
 
         expect(store.getState().auth.user).toEqual({
             email: "test@test.com",
